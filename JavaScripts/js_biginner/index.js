@@ -1,3 +1,6 @@
+//finding the second large number in array 
+
+
 const arr = [8,3,2,20,20,10,5,3];
 function compareFunction(a,b){
     return a-b;
