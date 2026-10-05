@@ -1,13 +1,35 @@
-const arr = [8,3,2,20,20,10,5,3];
-function compareFunction(a,b){
-    return a-b;
+const arr = [2, 5, 6, 2, 2, 4, 5, 6, 7];
+
+function compareNumber(a, b) {
+    return a - b;
 }
-arr.sort(compareFunction);
-const largest = arr[arr.length - 1];
-for (let i = arr.length - 2; i > 0; i--) {
-    if(arr[i] <  largest){
-        console.log(arr[i]);
-        break;
-        
+
+arr.sort(compareNumber);
+
+let currentNumber = arr[0];
+let count = 1;
+let highestCount = 0;
+let mostFrequentNumber = currentNumber;
+
+for (let i = 1; i < arr.length; i++) {
+
+    if (currentNumber === arr[i]) {
+        count += 1;
+    } else {
+
+        if (count > highestCount) {
+            highestCount = count;
+            mostFrequentNumber = currentNumber;
+        }
+
+        currentNumber = arr[i];
+        count = 1;
     }
 }
+
+if (count > highestCount) {
+    highestCount = count;
+    mostFrequentNumber = currentNumber;
+}
+
+console.log(mostFrequentNumber);
