@@ -1,35 +1,40 @@
-const arr = [2, 5, 6, 2, 2, 4, 5, 6, 7];
 
-function compareNumber(a, b) {
-    return a - b;
-}
+const numbers = [2,4,2,4,7,7];
+numbers.sort((a, b) => a - b);
+ let currentNumber = numbers[0];
+ let count = 1;
+ let mostFrequentNumber = [];
+ let highestCount = 0;
+ 
 
-arr.sort(compareNumber);
+ for ( let i = 1; i < numbers.length; i++) {
+    console.log("current:", currentNumber, "count:", count, "highest:", highestCount);
+    if(currentNumber === numbers[i]){
+        count ++;
 
-let currentNumber = arr[0];
-let count = 1;
-let highestCount = 0;
-let mostFrequentNumber = currentNumber;
-
-for (let i = 1; i < arr.length; i++) {
-
-    if (currentNumber === arr[i]) {
-        count += 1;
-    } else {
-
-        if (count > highestCount) {
-            highestCount = count;
-            mostFrequentNumber = currentNumber;
-        }
-
-        currentNumber = arr[i];
-        count = 1;
     }
-}
+    else{
+        if(count === highestCount){
+            mostFrequentNumber.push(currentNumber);
+        }
+    
+     else if (count > highestCount ) {
+        highestCount = count;
+        mostFrequentNumber = [currentNumber];
+    }
+    currentNumber = numbers[i];
+   count = 1;
+    }
+    
 
-if (count > highestCount) {
+ }
+   
+
+ if(count > highestCount){
     highestCount = count;
-    mostFrequentNumber = currentNumber;
-}
-
-console.log(mostFrequentNumber);
+    mostFrequentNumber = [currentNumber];
+ }
+ else if (count === highestCount){
+    mostFrequentNumber.push(currentNumber);
+ }
+ console.log(mostFrequentNumber);
