@@ -1,40 +1,24 @@
+//finding the largest number in array without sorting it it mean by using scaning
 
-const numbers = [2,4,2,4,7,7];
-numbers.sort((a, b) => a - b);
- let currentNumber = numbers[0];
- let count = 1;
- let mostFrequentNumber = [];
- let highestCount = 0;
- 
+const arr = [5,5,5];
+ let largestNumber = arr[0];
 
- for ( let i = 1; i < numbers.length; i++) {
-    console.log("current:", currentNumber, "count:", count, "highest:", highestCount);
-    if(currentNumber === numbers[i]){
-        count ++;
+ let secondLarger = -Infinity;
 
-    }
-    else{
-        if(count === highestCount){
-            mostFrequentNumber.push(currentNumber);
-        }
-    
-     else if (count > highestCount ) {
-        highestCount = count;
-        mostFrequentNumber = [currentNumber];
-    }
-    currentNumber = numbers[i];
-   count = 1;
-    }
-    
-
- }
-   
-
- if(count > highestCount){
-    highestCount = count;
-    mostFrequentNumber = [currentNumber];
- }
- else if (count === highestCount){
-    mostFrequentNumber.push(currentNumber);
- }
- console.log(mostFrequentNumber);
+for(let i = 1; i < arr.length; i++ ){
+   if(arr[i] > largestNumber){
+      secondLarger = largestNumber
+      largestNumber = arr[i]
+      
+   }
+  else if(arr[i] < largestNumber && arr[i] > secondLarger){
+   secondLarger = arr[i];
+  }
+  
+}
+if(secondLarger === -Infinity){
+   console.log("No distinct secondLarger");
+}
+else{
+console.log(secondLarger);
+}
