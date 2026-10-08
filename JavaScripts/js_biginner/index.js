@@ -1,24 +1,35 @@
 //finding the largest number in array without sorting it it mean by using scaning
 
-const arr = [5,5,5];
- let largestNumber = arr[0];
+const arr = [8, 8, 8, 3, 3, 5, 5, 5, 2];
+arr.sort((a,b)  => a-b);
+let currentNumber = arr[0];
+ let count = 1;
+ let highestCount = 0;
+ let mostFrequentNumber = [];
+ 
+ //arr=[2,2,2,3,3,3,4,5,5]; sortd array
 
- let secondLarger = -Infinity;
-
-for(let i = 1; i < arr.length; i++ ){
-   if(arr[i] > largestNumber){
-      secondLarger = largestNumber
-      largestNumber = arr[i]
-      
+for(let i = 1; i<arr.length; i++){
+   if(currentNumber === arr[i]){ // this work until 2,2,2 then the count be came 3 then the cN not equal to arr[i];
+      count ++;
    }
-  else if(arr[i] < largestNumber && arr[i] > secondLarger){
-   secondLarger = arr[i];
-  }
-  
+   else{
+      if(count > highestCount){
+         highestCount = count;
+         // then save the appers ot the current number in highestCoount for now its 3 
+         mostFrequentNumber=[currentNumber];  //2
+      }
+      
+      currentNumber=arr[i];
+      count = 1;
+   }
+
 }
-if(secondLarger === -Infinity){
-   console.log("No distinct secondLarger");
+if(count > highestCount){
+   highestCount = count;
+   mostFrequentNumber = [currentNumber];
 }
-else{
-console.log(secondLarger);
-}
+console.log(mostFrequentNumber);
+ 
+
+
