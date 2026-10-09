@@ -1,4 +1,4 @@
-//finding the largest number in array without sorting it it mean by using scaning
+﻿//finding the largest number in array without sorting it it mean by using scaning
 
 const arr = [8, 8, 8, 3, 3, 5, 5, 5, 2];
 arr.sort((a,b)  => a-b);
